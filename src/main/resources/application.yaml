@@ -14,7 +14,18 @@ spring:
 #        启动该服务，会在应用程序的相应服务器上启动HTTP Server，并且该服务器将与Sentinel dashboard进行交互
         port:
           8719
-
+  zipkin:
+    # zipkin服务器的地址
+    base-url: http://localhost:9411
+    # 关闭服务发现，否则springCloud会把zipkin的url当作服务名称
+    discovery-client-enabled: false
+    # 数据发送的方式：ACTIVEMQ RABBIT KAFKA WEB
+    sender:
+      type: web
+    # 设置抽样采集率，默认0.1（即10%），这里设置为100%
+    sleuth:
+      sampler:
+        probability: 1
 #开启sentinel监控功能
 feign:
   sentinel:
