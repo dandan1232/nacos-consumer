@@ -1,5 +1,6 @@
 package online.danbao.nacosconsumer.feign;
 
+import online.danbao.nacosconsumer.fallback.ProviderFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date: 2021/5/7 23:55
  * @description: 远程调用生产者
  */
-@FeignClient("nacos-provider")
+@FeignClient(value = "nacos-provider",fallback = ProviderFallback.class)
 public interface CallProviderFeign {
     /**
      * 远程调用生产者的hello接口

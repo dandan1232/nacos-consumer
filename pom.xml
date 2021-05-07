@@ -46,13 +46,19 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--            引入feign的依赖-->
+        <!--引入feign的依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
             <version>2.2.5.RELEASE</version>
         </dependency>
-    </dependencies>    <!-- SpringCloud的依赖 -->
+<!--        引入 sentinel 依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+    </dependencies>
+    <!-- SpringCloud的依赖 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
